@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MovieDBMVVM</string>
+    <string name="movie_list_title">Movie List</string>
+    <!-- Shared Elements-->
+    <string name="shared_image">sharedimage</string>
+</resources>
