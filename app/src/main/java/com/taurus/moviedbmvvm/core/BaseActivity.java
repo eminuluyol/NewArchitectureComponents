@@ -1,6 +1,7 @@
 package com.taurus.moviedbmvvm.core;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
@@ -30,7 +31,7 @@ import dagger.android.support.HasSupportFragmentInjector;
 
 public abstract class BaseActivity extends AppCompatActivity implements HasSupportFragmentInjector {
 
-    ActivityBaseBinding binding;
+    private ActivityBaseBinding binding;
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentAndroidInjector;
@@ -42,7 +43,7 @@ public abstract class BaseActivity extends AppCompatActivity implements HasSuppo
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
 
-        binding = DataBindingUtil.setContentView(this, getLayoutResId());
+        binding = putContentView(getLayoutResId());
 
         setSupportActionBar(binding.toolbarContainer.toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -56,6 +57,10 @@ public abstract class BaseActivity extends AppCompatActivity implements HasSuppo
             }
         }
 
+    }
+
+    protected <T extends ViewDataBinding> T putContentView(@LayoutRes int resId) {
+        return DataBindingUtil.setContentView(this, resId);
     }
 
     /**

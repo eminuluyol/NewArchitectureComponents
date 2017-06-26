@@ -2,20 +2,23 @@ package com.taurus.moviedbmvvm.movielist;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.taurus.moviedbmvvm.R;
 import com.taurus.moviedbmvvm.core.BaseFragment;
 import com.taurus.moviedbmvvm.core.baseadapter.RecyclerAdapter;
+import com.taurus.moviedbmvvm.data.local.entity.MovieEntity;
 import com.taurus.moviedbmvvm.databinding.FragmentMovieListBinding;
-import com.taurus.moviedbmvvm.listener.OnItemClickListener;
+import com.taurus.moviedbmvvm.moviedetail.MovieDetailActivity;
 import com.taurus.moviedbmvvm.movielist.adapter.delegate.MovieListAdapterDelegate;
 
 import javax.inject.Inject;
 
-public class MovieListFragment extends BaseFragment implements OnItemClickListener {
+public class MovieListFragment extends BaseFragment implements MovieListCallback {
 
     @Inject
     MovieListViewModel movieListViewModel;
@@ -49,7 +52,9 @@ public class MovieListFragment extends BaseFragment implements OnItemClickListen
     }
 
     @Override
-    public void onItemClick(View view) {
-
+    public void onMovieClicked(MovieEntity movieEntity, View sharedView) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(getActivity(), sharedView, getString(R.string.shared_image));
+        startActivity(MovieDetailActivity.newIntent(getActivity(), movieEntity.getId()), options.toBundle());
     }
 }

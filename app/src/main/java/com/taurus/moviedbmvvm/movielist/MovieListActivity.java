@@ -12,9 +12,7 @@ public class MovieListActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setTitle(R.string.movie_list_title);
-
     }
 
     @Nullable

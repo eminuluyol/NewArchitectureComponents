@@ -7,15 +7,17 @@ import android.view.ViewGroup;
 import com.taurus.moviedbmvvm.core.baseadapter.BaseAdapterDelegate;
 import com.taurus.moviedbmvvm.core.baseadapter.model.GenericItem;
 import com.taurus.moviedbmvvm.data.local.entity.MovieEntity;
-import com.taurus.moviedbmvvm.listener.OnItemClickListener;
+import com.taurus.moviedbmvvm.movielist.MovieListCallback;
 import com.taurus.moviedbmvvm.movielist.adapter.viewholder.MovieViewHolder;
 
 import java.util.List;
 
 public class MovieListAdapterDelegate extends BaseAdapterDelegate<MovieEntity, GenericItem, MovieViewHolder> {
 
-    public MovieListAdapterDelegate(OnItemClickListener listener) {
-        setOnItemClickListener(listener);
+    private MovieListCallback callback;
+
+    public MovieListAdapterDelegate(MovieListCallback listener) {
+        callback = listener;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class MovieListAdapterDelegate extends BaseAdapterDelegate<MovieEntity, G
     @NonNull
     @Override
     protected MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent) {
-        return MovieViewHolder.create(LayoutInflater.from(parent.getContext()), parent, getOnItemClickListener());
+        return MovieViewHolder.create(LayoutInflater.from(parent.getContext()), parent, callback);
     }
 
     @Override
