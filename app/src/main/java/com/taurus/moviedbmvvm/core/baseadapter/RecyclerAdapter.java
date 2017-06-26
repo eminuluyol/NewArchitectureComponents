@@ -39,14 +39,6 @@ public class RecyclerAdapter extends BaseRecyclerAdapter {
         notifyDataSetChanged();
     }
 
-    public void addAll(List<GenericItem> list) {
-
-        if (items == null) items = new ArrayList<>();
-
-        items.addAll(list);
-        notifyDataSetChanged();
-    }
-
     public void  swapItems(List<GenericItem> list) {
         final BaseDiffCallback diffCallback = new BaseDiffCallback(this.items, list);
         final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);

@@ -226,7 +226,12 @@ public abstract class BaseActivity extends AppCompatActivity implements HasSuppo
         overridePendingTransition(R.anim.left_in, R.anim.right_out);
     }
 
-    protected void setupStatusBar() {
+    /**
+     * Make statusbar transparent
+     * <p>
+     *This method makes statusbar transparent. DO NOT forget to add fitSystemTrue in your XML layout
+     */
+    protected void makeStatusBarTransparent() {
 
         Window window = getWindow();
 

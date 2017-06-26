@@ -1,4 +1,4 @@
-package com.taurus.moviedbmvvm.movielist.adapter;
+package com.taurus.moviedbmvvm.movielist.adapter.viewholder;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

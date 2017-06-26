@@ -8,7 +8,7 @@ import com.taurus.moviedbmvvm.core.baseadapter.BaseAdapterDelegate;
 import com.taurus.moviedbmvvm.core.baseadapter.model.GenericItem;
 import com.taurus.moviedbmvvm.data.local.entity.MovieEntity;
 import com.taurus.moviedbmvvm.listener.OnItemClickListener;
-import com.taurus.moviedbmvvm.movielist.adapter.MovieViewHolder;
+import com.taurus.moviedbmvvm.movielist.adapter.viewholder.MovieViewHolder;
 
 import java.util.List;
 
